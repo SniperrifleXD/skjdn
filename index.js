@@ -10,7 +10,7 @@ const hook = new WebhookClient({url: 'https://discord.com/api/webhooks/101931662
 for(var i = 0; i < t.length; i++) {
   await wait(5000);
   const userId = parseInt(t[i].split(':')[2]); 
-  const pl = rbx.getPlayerInfo(userId).then((info) => { return info.isBanned});
+  const pl = await rbx.getPlayerInfo(userId).then((info) => info.isBanned );
 
    rbx.getCollectibles(userId, "Asc", 100).then(function (data) {
    
