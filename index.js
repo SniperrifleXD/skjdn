@@ -6,7 +6,7 @@ const rbx = require('noblox.js');
 const { WebhookClient } = require('discord.js');
 (async () => {
 
-const hook = new WebhookClient({url: 'https://discord.com/api/webhooks/1019316623477330072/JnOGCjNPBr32Fk3WarDx_EcUZP1wENv52WgCLnaVUNsuXLUxvaUh_Mjn0lrAC6m8nRjD'})
+const hook = new WebhookClient({url: process.env.webhooks})
 for(var i = 0; i < t.length; i++) {
   await wait(5000);
   const userId = parseInt(t[i].split(':')[2]); 
