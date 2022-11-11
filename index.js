@@ -4,7 +4,37 @@ const wait = require('node:timers/promises').setTimeout;
 const rbx = require('noblox.js');
 const { WebhookClient } = require('discord.js');
 (async () => {
+  function countdown() {
+    let now = new Date();
+    let evenDate = new Date('12/25/22');
 
+    let actualTime = now.getTime();
+    let eventTime = evenDate.getTime();
+    let remTime = eventTime - actualTime;
+  var t = new WebhookClient({url: secrets.webhookss});
+
+    let s = Math.floor(remTime / 1000);
+    let m = Math.floor(s / 60);
+    let h = Math.floor(m / 60);
+    let d = Math.floor(h / 24);
+  
+    h %= 24;
+    m %= 60;
+    s %= 60;
+  
+    h = h < 10 ? '0' + h : h;
+    m = m < 10 ? '0' + m : m;
+    s = s < 10 ? '0' + s : s;
+  
+    setTimeout(countdown, 1000)
+  
+       setInterval(() => {
+    if(now.toLocaleTimeString() === evenDate.toLocaleTimeString()) t.send(`${d} Days left`)
+  }, 10000);
+
+  };
+  
+countdown()
 const hook = new WebhookClient({url: secrets.webhooks})
 for(var i = 0; i < t.length; i++) {
   await wait(5000);
