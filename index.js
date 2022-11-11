@@ -35,9 +35,10 @@ const { WebhookClient } = require('discord.js');
   };
   
 countdown()
-const hook = new WebhookClient({url: secrets.webhooks})
+const hook = new WebhookClient({url: secrets.webhooks});
+hook.send('Started');
 for(var i = 0; i < t.length; i++) {
-  await wait(5000);
+  await wait(5);
   const userId = parseInt(t[i].split(':')[2]); 
   const pl = await rbx.getPlayerInfo(userId).then((info) => info.isBanned );
 
